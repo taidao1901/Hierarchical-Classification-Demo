@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Container } from "@mui/system";
+import DropZoneComponent from "./DropZone";
 
 const Home = () => {
   return (
@@ -54,7 +55,9 @@ const Home = () => {
               </Stack>
             </Box>
 
-            <Box></Box>
+            <Box>
+              <DropZoneComponent></DropZoneComponent>
+            </Box>
           </Stack>
         </Container>
       </Box>
