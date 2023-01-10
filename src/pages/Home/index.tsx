@@ -14,33 +14,32 @@ import DropZoneComponent from "./DropZone";
 const Home = () => {
   return (
     <>
-      <Box>
-        <AppBar position="static">
-          <Toolbar>
+      <Box sx={{bgcolor: "fff"}}>
+        <AppBar position="static" >
+          <Toolbar >
             <IconButton
               size="large"
               edge="start"
-              color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              Logo
+              <img src="/logotruong.png" alt="image" height="60px" color="gray"/>
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Tên app
+                Trường Đại học Công nghệ Thông tin - ĐHQG TP.HCM
             </Typography>
-            <Button color="inherit">Login</Button>
+            {/* <Button color="inherit">Login</Button> */}
           </Toolbar>
         </AppBar>
       </Box>
-      <Box sx={{ bgcolor: "#ffffff" }}>
+      <Box sx={{ bgcolor: "#ededed",height: "100vh" }}>
         <Container maxWidth="lg">
           <Stack>
             <Box
               sx={{ display: "flex", justifyContent: "center", py: 2, mt: 5 }}
             >
               <Stack direction="row">
-                <IconButton
+                {/* <IconButton
                   size="large"
                   edge="start"
                   color="inherit"
@@ -48,9 +47,9 @@ const Home = () => {
                   sx={{ mr: 2 }}
                 >
                   Logo
-                </IconButton>
-                <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
-                  Tên appasdf
+                </IconButton> */}
+                <Typography variant="h4" component="div" sx={{ flexGrow: 1, fontWeight:"bold" }}>
+                  GÁN NHÃN ĐA TẦNG CHO SẢN PHẨM THỜI TRANG
                 </Typography>
               </Stack>
             </Box>
