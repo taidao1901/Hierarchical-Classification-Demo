@@ -1,8 +1,11 @@
-import { Button, Typography, Breadcrumbs } from "@mui/material";
+import { Button, Typography, Breadcrumbs, Chip } from "@mui/material";
 import { Box, Container, Stack } from "@mui/system";
 import { useCallback, useEffect, useState } from "react";
 import Dropzone, { useDropzone } from "react-dropzone";
-import UploadFileIcon from '@mui/icons-material/UploadFile';
+import UploadFileIcon from "@mui/icons-material/UploadFile";
+import DeleteIcon from "@mui/icons-material/Delete";
+import PublishIcon from "@mui/icons-material/Publish";
+import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 
 const DropZoneComponent = () => {
   const [selectedFile, setSelectedFile] = useState<File>();
@@ -25,7 +28,7 @@ const DropZoneComponent = () => {
 
   const onClearFile = () => {
     setSelectedFile(undefined);
-    setResult(undefined)
+    setResult(undefined);
   };
   const onSelectFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
@@ -104,7 +107,7 @@ const DropZoneComponent = () => {
   };
 
   return (
-    <Stack spacing={5}>
+    <Stack spacing={3} sx={{mt:0}}>
       <div
         style={{
           backgroundColor: "#ffffff",
@@ -116,9 +119,8 @@ const DropZoneComponent = () => {
           padding: "10px",
           alignSelf: "center",
           marginTop: "30px",
-          borderRadius:"30px",
-          boxShadow:"1px 1px 64px 7px rgba(0,0,0,0.20)"
-
+          borderRadius: "30px",
+          boxShadow: "1px 1px 64px 7px rgba(0,0,0,0.20)",
         }}
       >
         {selectedFile == undefined && (
@@ -144,47 +146,75 @@ const DropZoneComponent = () => {
             }}
           />
         )}
-      </div>{selectedFile && (
-      <Stack spacing={1} direction="row" justifyContent="center" width="80%" alignSelf="center">
-      
+      </div>
+      {selectedFile && (
+        <Stack
+          spacing={1}
+          direction="row"
+          justifyContent="center"
+          width="80%"
+          alignSelf="center"
+        >
           <Button
             variant="contained"
             component="label"
             onClick={onClearFile}
             color="error"
+            startIcon={<DeleteIcon />}
           >
             Clear
           </Button>
-      
-        
+
           <Button
             variant="contained"
             component="label"
             onClick={onSubmit}
             color="success"
+            startIcon={<PublishIcon />}
+            disabled={result != undefined}
           >
             Submit
           </Button>
-        
-      </Stack>)}
-      {result && (
-        <Stack direction="row" justifyContent="center" spacing={1}>
-          <Typography key="1" color="text.primary" variant="h6" fontWeight="bold" >
-            {result.outputs.name[0]}
-          </Typography>
-          <Typography key="2" color="text.primary" variant="h6" fontWeight="bold" >
-            {"  >  "}
-          </Typography>
-          <Typography key="3" color="text.primary" variant="h6" fontWeight="bold" >
-            {result.outputs.name[1]}
-          </Typography>
-          <Typography key="4" color="text.primary" variant="h6" fontWeight="bold" >
-            {"  >  "}
-          </Typography>
-          <Typography key="5" color="text.primary" variant="h6" fontWeight="bold" >
-            {result.outputs.name[2]}
-          </Typography>
         </Stack>
+      )}
+
+      {result && (
+        <>
+          <Typography
+            key="5"
+            color="text.primary"
+            variant="h4"
+            fontWeight="bold"
+            alignSelf="center"
+          >
+            Kết quả
+          </Typography>
+          <Stack direction="row" justifyContent="center" spacing={1} sx={{mt:1}}>
+            <Chip
+              label={result.outputs.name[0]}
+              color="warning"
+              size="medium"
+              style={{fontSize: 20, fontWeight:"bold"}}
+              onClick={()=>{}}
+            />
+            <DoubleArrowIcon style={{ alignSelf: "center" }} />
+            <Chip
+              label={result.outputs.name[1]}
+              color="info"
+              size="medium"
+              style={{fontSize: 20, fontWeight:"bold"}}
+              onClick={()=>{}}
+            />
+            <DoubleArrowIcon style={{ alignSelf: "center" }} />
+            <Chip
+              label={result.outputs.name[2]}
+              color="success"
+              size="medium"
+              style={{fontSize: 20, fontWeight:"bold"}}
+              onClick={()=>{}}
+            />
+          </Stack>
+        </>
       )}
     </Stack>
   );

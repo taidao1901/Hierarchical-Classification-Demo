@@ -36,9 +36,9 @@ const Home = () => {
         <Container maxWidth="lg">
           <Stack>
             <Box
-              sx={{ display: "flex", justifyContent: "center", py: 2, mt: 5 }}
+              sx={{ display: "flex", justifyContent: "center", py: 0, mt: 3 }}
             >
-              <Stack direction="row">
+              <Stack direction="row" sx={{mt:1}}>
                 {/* <IconButton
                   size="large"
                   edge="start"
@@ -48,7 +48,7 @@ const Home = () => {
                 >
                   Logo
                 </IconButton> */}
-                <Typography variant="h4" component="div" sx={{ flexGrow: 1, fontWeight:"bold" }}>
+                <Typography variant="h4" component="div" sx={{ flexGrow: 1, fontWeight:"bold", margin:"0px" }}>
                   GÁN NHÃN ĐA TẦNG CHO SẢN PHẨM THỜI TRANG
                 </Typography>
               </Stack>
